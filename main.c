@@ -34,14 +34,14 @@ GLuint indices[] =
 int main(int argc, char **argv)
 {
     SDL_Init(SDL_INIT_EVERYTHING);
-    SDL_Window *window = SDL_CreateWindow("larn opengl", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_OPENGL);
+    SDL_Window *window = SDL_CreateWindow("larn opengl", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 800, SDL_WINDOW_OPENGL);
 
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-    gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress);
 
     SDL_GLContext context = SDL_GL_CreateContext(window);
+    gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress);
     glViewport(0, 0, 800, 800);
 
     shader_t *shader = shader_new("../shaders/default.vert", "../shaders/default.frag");
@@ -61,7 +61,7 @@ int main(int argc, char **argv)
     vbo_unbind(vbo);
     ebo_unbind(ebo);
 
-    texture_t* tex = texture_new("../res/image.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+    texture_t* tex = texture_new("../res/image.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     texture_assign(tex, shader, "tex0", 0);
 
     while (running)

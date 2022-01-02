@@ -65,7 +65,7 @@ void texture_bind(texture_t *texture)
 
 void texture_unbind(texture_t *texture)
 {
-	glBindTexture(1, 0);
+	glBindTexture(texture->type, 0);
 }
 
 void texture_delete(texture_t *texture)

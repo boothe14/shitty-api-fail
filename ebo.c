@@ -14,12 +14,12 @@ ebo_t* ebo_new(GLuint* indices, GLsizeiptr size)
 
 void ebo_bind(ebo_t* ebo)
 {
-    glBindBuffer(1, ebo->id);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo->id);
 }
 
 void ebo_unbind(ebo_t* ebo)
 {
-    glBindBuffer(1, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
 
 void ebo_delete(ebo_t* ebo)
